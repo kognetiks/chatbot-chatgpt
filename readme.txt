@@ -4,7 +4,7 @@ Tags: chatbot, chatgpt, openai, ai, customer-support, conversational chat
 Donate link: https://kognetiks.com/wordpress-plugins/donate/
 Requires at least: 5.0
 Tested up to: 6.2
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -88,6 +88,9 @@ The plugin supports the gpt-3.5-turbo and gpt-4 models from OpenAI.  These are t
 9. Chatbot ChatGPT shown in Wide mode
 
 == Changelog ==
+
+= 1.4.3 =
+* TBD
 
 = 1.4.2 =
 * Added support for the GPT-4 API in settings - requires access to gpt-4 API, see [https://openai.com/waitlist/gpt-4-api](https://openai.com/waitlist/gpt-4-api)

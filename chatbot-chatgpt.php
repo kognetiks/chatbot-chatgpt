@@ -3,7 +3,7 @@
  * Plugin Name: Chatbot ChatGPT
  * Plugin URI:  https://github.com/kognetiks/chatbot-chatgpt
  * Description: A simple plugin to add a Chatbot ChatGPT to your Wordpress Website.
- * Version:     1.4.2
+ * Version:     1.4.3
  * Author:      Kognetiks.com
  * Author URI:  https://www.kognetiks.com
  * License:     GPLv2 or later
@@ -87,7 +87,7 @@ function chatbot_chatgpt_send_message() {
     wp_send_json_success($response);
 }
 
-// Add link to chatgtp options - setting page
+// Add link to Chatbot ChatGPT Settings page
 function chatbot_chatgpt_plugin_action_links($links) {
     $settings_link = '<a href="../wp-admin/options-general.php?page=chatbot-chatgpt">' . __('Settings', 'chatbot-chatgpt') . '</a>';
     array_unshift($links, $settings_link);

@@ -50,7 +50,7 @@ function chatbot_chatgpt_settings_page_html() {
                     messageBox.innerHTML = `
                     <div id="rateReviewMessageBox" style="background-color: white; border: 1px solid black; padding: 10px; position: relative;">
                         <div class="message-content" style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>If you and your visitors are enjoying having this chatbot on your site, please take a moment to <a href="https://wordpress.org/support/plugin/chatbot-chatgpt/reviews/" target="_blank">rate and review this plugin</a>. Thank you!</span>
+                            <span><b>Loving the chatbot experience on our site?</b> Your feedback makes a big difference! Please click here to <a href="https://wordpress.org/support/plugin/chatbot-chatgpt/reviews/" target="_blank">rate and review</a> our plugin. It only takes a minute, but it helps us immensely. <b>Thank you for your support!</b></span>
                             <button id="closeMessageBox" class="dashicons dashicons-dismiss" style="background: none; border: none; cursor: pointer; outline: none; padding: 0; margin-left: 10px;"></button>
                             
                         </div>
@@ -283,7 +283,7 @@ function chatbot_chatgpt_api_model_section_callback($args) {
     <p>This plugin requires an API key from OpenAI to function. You can obtain an API key by signing up at <a href="https://platform.openai.com/account/api-keys" target="_blank">https://platform.openai.com/account/api-keys</a>.</p>
     <p>More information about ChatGPT models and their capability can be found at <a href="https://platform.openai.com/docs/models/overview" taget="_blank">https://platform.openai.com/docs/models/overview</a>.</p>
     <p>Enter your ChatGPT API key below and select the OpenAI model of your choice.</p>
-    <p>As soon as the API for GPT-4 is available for general use, you will be able to select from the latest available models.</p>
+    <p>As soon as the APIs for new models are available for general use, you will be able to select from the latest available models.</p>
     <?php
 }
 
