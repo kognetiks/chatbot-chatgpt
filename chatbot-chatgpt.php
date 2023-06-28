@@ -31,6 +31,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Include necessary files
 require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings.php';
+require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings-api-model.php'; // Refactoring Settings - Ver 1.4.3
+require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings-premium.php'; // Refactoring Settings - Ver 1.4.3
+require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings-setup.php'; // Refactoring Settings - Ver 1.4.3
+require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings-support.php'; // Refactoring Settings - Ver 1.4.3
 require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-shortcode.php';
 
 // Diagnostics On or Off - Ver 1.4.2
