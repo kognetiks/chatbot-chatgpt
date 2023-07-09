@@ -18,6 +18,9 @@ jQuery(document).ready(function ($) {
         chatGptChatBot.removeClass('wide');
     }
 
+    // Avatar Icon - Ver 1.4.3
+    var chatgpt_avatar_icon_setting = localStorage.getItem('chatgpt_avatar_icon_setting') || 'icon-001.png';
+
     // Diagnostics = Ver 1.4.2
     if (chatgpt_diagnostics === 'On') {
         console.log(messageInput);
@@ -25,6 +28,7 @@ jQuery(document).ready(function ($) {
         console.log(submitButton);
         console.log(chatGptChatBot);
         console.log('chatgpt_width_setting: ' + chatgpt_width_setting);
+        console.log('chatgpt_avator_icon_setting');
     }
 
     var chatGptOpenButton = $('#chatgpt-open-btn');

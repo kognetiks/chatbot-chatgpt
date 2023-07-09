@@ -32,6 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Include necessary files
 require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings.php';
 require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings-api-model.php'; // Refactoring Settings - Ver 1.4.3
+require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings-avatar.php'; // Refactoring Settings - Ver 1.4.3
 require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings-premium.php'; // Refactoring Settings - Ver 1.4.3
 require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings-setup.php'; // Refactoring Settings - Ver 1.4.3
 require_once plugin_dir_path(__FILE__) . 'includes/chatbot-chatgpt-settings-support.php'; // Refactoring Settings - Ver 1.4.3
@@ -58,6 +59,7 @@ function chatbot_chatgpt_enqueue_scripts() {
         'chatgpt_disclaimer_setting' => esc_attr(get_option('chatgpt_disclaimer_setting')),
         'chatgpt_max_tokens_setting' => esc_attr(get_option('chatgpt_max_tokens_setting')),
         'chatgpt_width_setting' => esc_attr(get_option('chatgpt_width_setting')),
+        'chatgpt_avatar_icon_setting' => esc_attr(get_option('chatgpt_avatar_icon_setting')),
     );
     wp_localize_script('chatbot-chatgpt-local', 'chatbotSettings', $chatbot_settings);
 

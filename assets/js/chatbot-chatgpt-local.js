@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
         var chatgptDisclaimerSetting = (typeof chatbotSettings !== 'undefined' && chatbotSettings.chatgpt_disclaimer_setting) ? chatbotSettings.chatgpt_disclaimer_setting : 'Yes';
         var chatgptMaxTokensSetting = (typeof chatbotSettings !== 'undefined' && chatbotSettings.chatgpt_max_tokens_setting) ? chatbotSettings.chatgpt_max_tokens_setting : '150';
         var chatgptWidthSetting = (typeof chatbotSettings !== 'undefined' && chatbotSettings.chatgpt_width_setting) ? chatbotSettings.chatgpt_width_setting : 'Narrow';
+        var chatgptAvatarIconSetting = (typeof chatbotSettings !== 'undefined' && chatbotSettings.chatgpt_avatar_icon_setting) ? chatbotSettings.chatgpt_avatar_icon_setting : 'icon-001.png';
 
         // Get the input elements
         var chatgptNameInput = document.getElementById('chatgpt_bot_name');
@@ -18,6 +19,7 @@ jQuery(document).ready(function ($) {
         var chatgptDisclaimerSettingInput = document.getElementById('chatgpt_disclaimer_setting');
         var chatgptMaxTokensSettingInput = document.getElementById('chatgpt_max_tokens_setting');
         var chatgptWidthSettingInput = document.getElementById('chatgpt_width_setting');
+        var chatgptAvatarIconSettingInput = document.getElementById('chatgpt_avatar_icon_setting');
 
         if(chatgptNameInput) {
             chatgptNameInput.addEventListener('change', function() {
@@ -61,6 +63,13 @@ jQuery(document).ready(function ($) {
             });
         }
 
+        if(chatgptAvatarIconSettingInput) {
+            chatgptAvatarIconSettingInput.addEventListener('change', function() {
+                localStorage.setItem('chatgpt_avatar_icon_setting', this.value);
+            });
+        }
+
+
         // Update the localStorage values when the form is submitted - Ver 1.4.1
         // chatgpt-settings-form vs. your-form-id
         var chatgptSettingsForm = document.getElementById('chatgpt-settings-form');
@@ -77,6 +86,7 @@ jQuery(document).ready(function ($) {
                 const chatgptDisclaimerSettingInput = document.getElementById('chatgpt_disclaimer_setting');
                 const chatgptMaxTokensSettingInput = document.getElementById('chatgpt_max_tokens_setting');
                 const chatgptWidthSettingInput = document.getElementById('chatgpt_width_setting');
+                const chatgptAvatarIconSettingInput = document.getElementById('chatgpt_avatar_icon_setting');
 
                 if(chatgptNameInput) {
                     localStorage.setItem('chatgpt_bot_name', chatgptNameInput.value);
@@ -104,6 +114,10 @@ jQuery(document).ready(function ($) {
 
                 if(chatgptWidthSettingInput) {
                     localStorage.setItem('chatgpt_width_setting', chatgptWidthSettingInput.value)
+                }
+
+                if(chatgptAvatarIconSettingInput) {
+                    localStorage.setItem('chatgpt_avatar_icon_setting', chatgptAvatarIconSettingInput.value)
                 }
 
             });

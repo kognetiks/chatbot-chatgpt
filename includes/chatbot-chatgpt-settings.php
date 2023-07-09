@@ -84,6 +84,7 @@ function chatbot_chatgpt_settings_page_html() {
                 // New options for max tokens and width - Ver 1.4.2
                 const chatgptMaxTokensSettingInput = document.getElementById('chatgpt_max_tokens_setting');
                 const chatgptWidthSettingInput = document.getElementById('chatgpt_width_setting');
+                const chatgptAvatarIconSettingInput = document.getElementById('chatgpt_avatar_icon_setting');
 
                 // Update the local storage with the input values, if inputs exist
                 if(chatgptNameInput) localStorage.setItem('chatgpt_bot_name', chatgptNameInput.value);
@@ -93,6 +94,7 @@ function chatbot_chatgpt_settings_page_html() {
                 if(chatgptDisclaimerSettingInput) localStorage.setItem('chatgpt_disclaimer_setting', chatgptDisclaimerSettingInput.value);
                 if(chatgptMaxTokensSettingInput) localStorage.setItem('chatgpt_max_tokens_setting', chatgptMaxTokensSettingInput.value);
                 if(chatgptWidthSettingInput) localStorage.setItem('chatgpt_width_setting', chatgptWidthSettingInput.value);
+                if(chatgptAvatarIconSettingInput) localStorage.setItem('chatgpt_avatar_icon_setting', chatgptAvatarIconSettingInput.value);
             });
         }
     });
@@ -102,6 +104,7 @@ function chatbot_chatgpt_settings_page_html() {
         <h2 class="nav-tab-wrapper">
             <a href="?page=chatbot-chatgpt&tab=api_model" class="nav-tab <?php echo $active_tab == 'api_model' ? 'nav-tab-active' : ''; ?>">API/Model</a>
             <a href="?page=chatbot-chatgpt&tab=settings" class="nav-tab <?php echo $active_tab == 'settings' ? 'nav-tab-active' : ''; ?>">Settings</a>
+            <a href="?page=chatbot-chatgpt&tab=avatar" class="nav-tab <?php echo $active_tab == 'avatar' ? 'nav-tab-active' : ''; ?>">Avatar</a>
             <!-- Coming Soon in Ver 2.0.0 -->
             <!-- <a href="?page=chatbot-chatgpt&tab=premium" class="nav-tab <?php echo $active_tab == 'premium' ? 'nav-tab-active' : ''; ?>">Premium</a> -->
             <a href="?page=chatbot-chatgpt&tab=support" class="nav-tab <?php echo $active_tab == 'support' ? 'nav-tab-active' : ''; ?>">Support</a>
@@ -116,6 +119,9 @@ function chatbot_chatgpt_settings_page_html() {
             } elseif ($active_tab == 'api_model') {
                 settings_fields('chatbot_chatgpt_api_model');
                 do_settings_sections('chatbot_chatgpt_api_model');
+            } elseif ($active_tab == 'avatar') {
+                settings_fields('chatbot_chatgpt_avatar');
+                do_settings_sections('chatbot_chatgpt_avatar');
             // Coming Soon in Ver 2.0.0
             // } elseif ($active_tab == 'premium') {
             //     settings_fields('chatbot_chatgpt_premium');
@@ -272,6 +278,25 @@ function chatbot_chatgpt_settings_init() {
         'chatbot_chatgpt_support'
     );
         
+    // Avatar settings tab - Ver 1.4.3
+    register_setting('chatbot_chatgpt_avatar', 'chatgpt_avatar_icon_setting');
+
+    // Register a new section in the "chatbot_chatgpt" page - Ver 1.4.3
+    add_settings_section(
+        'chatbot_chatgpt_avatar_section',
+        'Avatar',
+        'chatbot_chatgpt_avatar_section_callback',
+        'chatbot_chatgpt_avatar'
+    );
+
+    add_settings_field(
+        'chatgpt_avatar_icon_setting',
+        'Avatar Icon Setting',
+        'chatbot_chatgpt_avatar_callback',
+        'chatbot_chatgpt_avatar',
+        'chatbot_chatgpt_avatar_section'
+    );
+
 }
 
 add_action('admin_init', 'chatbot_chatgpt_settings_init');
