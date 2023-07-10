@@ -14,8 +14,6 @@ function chatbot_chatgpt_avatar_callback($args) {
     // Get the avatar option. If it's not set or is NULL, default to an empty string.
     $avatar = "";
     $avatar = esc_attr(get_option('chatgpt_avatar_icon_setting', 'icon-001.png'));
-    echo '$avatar callback 1st function: ' . $avatar;
-
     ?>
     <input type="text" id="chatgpt_avatar_icon" name="chatgpt_avatar_icon" value="<?php echo esc_attr( $avatar ); ?>" class="regular-text">
     <?php
@@ -26,9 +24,8 @@ function chatbot_chatgpt_avatar_section_callback($args) {
     // Get the avatar option. If it's not set or is NULL, default to an empty string.
     $avatar = "";
     $avatar = esc_attr(get_option('chatgpt_avatar_icon_setting', 'icon-001.png'));
-    echo '$avatar section callback 2nd function: ' . $avatar;
     ?>
-    <p>Select your icon. Click on an image to select it.</p>
+    <p>Select your icon by clicking on an image to select it.  Don't forget to click 'Save Settings'.</p>
     <table>
         <?php
             $iconCount = 7;  // Update this number as you add more icons
@@ -71,10 +68,31 @@ function chatbot_chatgpt_avatar_section_callback($args) {
         
         window.onload = function() {
             // If no icon has been selected, select the first one by default
-            if (document.getElementById('chatgpt_avatar_icon').value == '') {
+            var iconFromStorage = localStorage.getItem('chatgpt_avatar_icon_setting');
+            if (iconFromStorage) {
+                selectIcon(iconFromStorage);
+            } else if (document.getElementById('chatgpt_avatar_icon').value == '') {
                 selectIcon('icon-001.png');
             }
         }
+
+        function selectIcon(id) {
+            // Clear border from previous selected icon
+            var previousIcon = document.getElementById(document.getElementById('chatgpt_avatar_icon').value);
+            if(previousIcon) previousIcon.style.border = "";
+
+            // Set border for new selected icon
+            var selectedIcon = document.getElementById(id);
+            selectedIcon.style.border = "2px solid red";
+
+            // Set selected icon value in hidden input
+            document.getElementById('chatgpt_avatar_icon').value = id;
+
+            // Save selected icon in local storage
+            localStorage.setItem('chatgpt_avatar_icon_setting', id);
+        }
+
     </script>
     <?php
 }
+

@@ -113,11 +113,11 @@ jQuery(document).ready(function ($) {
                 }
 
                 if(chatgptWidthSettingInput) {
-                    localStorage.setItem('chatgpt_width_setting', chatgptWidthSettingInput.value)
+                    localStorage.setItem('chatgpt_width_setting', chatgptWidthSettingInput.value);
                 }
 
                 if(chatgptAvatarIconSettingInput) {
-                    localStorage.setItem('chatgpt_avatar_icon_setting', chatgptAvatarIconSettingInput.value)
+                    localStorage.setItem('chatgpt_avatar_icon_setting', chatgptAvatarIconSettingInput.value);
                 }
 
             });
