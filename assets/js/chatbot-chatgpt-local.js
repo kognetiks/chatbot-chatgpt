@@ -16,6 +16,8 @@ jQuery(document).ready(function ($) {
         var chatgptInitialGreetingInput = document.getElementById('chatgpt_initial_greeting');
         var chatgptSubsequentGreetingInput = document.getElementById('chatgpt_subsequent_greeting');
         var chatgptStartStatusInput = document.getElementById('chatGPTChatBotStatus');
+        // Start Status New Visitor - Ver 1.4.3
+        var chatgptStartStatusNewVisitorInput = document.getElementById('chatGPTChatBotStatusNewVisitor');
         var chatgptDisclaimerSettingInput = document.getElementById('chatgpt_disclaimer_setting');
         var chatgptMaxTokensSettingInput = document.getElementById('chatgpt_max_tokens_setting');
         var chatgptWidthSettingInput = document.getElementById('chatgpt_width_setting');
@@ -42,6 +44,13 @@ jQuery(document).ready(function ($) {
         if(chatgptStartStatusInput) {
             chatgptStartStatusInput.addEventListener('change', function() {
                 localStorage.setItem('chatGPTChatBotStatus', this.options[this.selectedIndex].value);
+            });
+        }
+
+        // Start Status New Visitor - Ver 1.4.3
+        if(chatgptStartStatusInput) {
+            chatgptStartStatusNewVisitorInput.addEventListener('change', function() {
+                localStorage.setItem('chatGPTChatBotStatusNewVisitor', this.options[this.selectedIndex].value);
             });
         }
 
@@ -102,6 +111,11 @@ jQuery(document).ready(function ($) {
 
                 if(chatgptStartStatusInput) {
                     localStorage.setItem('chatGPTChatBotStatus', chatgptStartStatusInput.value);
+                }
+
+                // Start Status New Visitor - Ver 1.4.3
+                if(chatgptStartStatusNewVisitorInput) {
+                    localStorage.setItem('chatGPTChatBotStatusNewVisitor', chatgptStartStatusNewVisitorInput.value);
                 }
 
                 if(chatgptDisclaimerSettingInput) {

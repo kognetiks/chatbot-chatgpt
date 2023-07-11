@@ -42,6 +42,8 @@ function chatbot_chatgpt_settings_page_html() {
                 const chatgptSettingsForm = document.getElementById('chatgpt-settings-form');
                 // Read the start status - Ver 1.4.1
                 const chatgptStartStatusInput = document.getElementById('chatGPTChatBotStatus');
+                // Read Start Status New Visitor - Ver 1.4.3
+                const chatgptStartStatusNewVisitorInput = document.getElementById('chatGPTChatBotStatusNewVisitor');
                 const reminderCount = localStorage.getItem('reminderCount') || 0;
 
                 if (reminderCount < 5) {
@@ -80,6 +82,8 @@ function chatbot_chatgpt_settings_page_html() {
                 const chatgptInitialGreetingInput = document.getElementById('chatgpt_initial_greeting');
                 const chatgptSubsequentGreetingInput = document.getElementById('chatgpt_subsequent_greeting');
                 const chatgptStartStatusInput = document.getElementById('chatGPTChatBotStatus');
+                // Start Status New Visitor - Ver 1.4.3
+                const chatgptStartStatusNewVisitorInput = document.getElementById('chatGPTChatBotStatusNewVisitor');
                 const chatgptDisclaimerSettingInput = document.getElementById('chatgpt_disclaimer_setting');
                 // New options for max tokens and width - Ver 1.4.2
                 const chatgptMaxTokensSettingInput = document.getElementById('chatgpt_max_tokens_setting');
@@ -91,6 +95,8 @@ function chatbot_chatgpt_settings_page_html() {
                 if(chatgptInitialGreetingInput) localStorage.setItem('chatgpt_initial_greeting', chatgptInitialGreetingInput.value);
                 if(chatgptSubsequentGreetingInput) localStorage.setItem('chatgpt_subsequent_greeting', chatgptSubsequentGreetingInput.value);
                 if(chatgptStartStatusInput) localStorage.setItem('chatGPTChatBotStatus', chatgptStartStatusInput.value);
+                // Start Status New Visitor - Ver 1.4.3
+                if(chatgptStartStatusNewVisitorInput) localStorage.setItem('chatGPTChatBotStatusNewVisitor', chatgptStartStatusInput.value);
                 if(chatgptDisclaimerSettingInput) localStorage.setItem('chatgpt_disclaimer_setting', chatgptDisclaimerSettingInput.value);
                 if(chatgptMaxTokensSettingInput) localStorage.setItem('chatgpt_max_tokens_setting', chatgptMaxTokensSettingInput.value);
                 if(chatgptWidthSettingInput) localStorage.setItem('chatgpt_width_setting', chatgptWidthSettingInput.value);
@@ -186,6 +192,8 @@ function chatbot_chatgpt_settings_init() {
     // Settings settings tab - Ver 1.3.0
     register_setting('chatbot_chatgpt_settings', 'chatgpt_bot_name');
     register_setting('chatbot_chatgpt_settings', 'chatGPTChatBotStatus');
+    // Start Status New Visitor - Ver 1.4.3
+    register_setting('chatbot_chatgpt_settings', 'chatGPTChatBotStatusNewVisitor');
     register_setting('chatbot_chatgpt_settings', 'chatgpt_initial_greeting');
     register_setting('chatbot_chatgpt_settings', 'chatgpt_subsequent_greeting');
     // Option to remove the OpenAI disclaimer - Ver 1.4.1
@@ -212,6 +220,15 @@ function chatbot_chatgpt_settings_init() {
         'chatGPTChatBotStatus',
         'Start Status',
         'chatbot_chatGPTChatBotStatus_callback',
+        'chatbot_chatgpt_settings',
+        'chatbot_chatgpt_settings_section'
+    );
+
+    // Start Status New Visitor - Ver 1.4.3
+    add_settings_field(
+        'chatGPTChatBotStatusNewVisitor',
+        'Start Status New Visitor',
+        'chatbot_chatGPTChatBotStatusNewVisitor_callback',
         'chatbot_chatgpt_settings',
         'chatbot_chatgpt_settings_section'
     );

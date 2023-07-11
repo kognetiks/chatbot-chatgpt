@@ -56,6 +56,8 @@ function chatbot_chatgpt_enqueue_scripts() {
         'chatgpt_initial_greeting' => esc_attr(get_option('chatgpt_initial_greeting')),
         'chatgpt_subsequent_greeting' => esc_attr(get_option('chatgpt_subsequent_greeting')),
         'chatGPTChatBotStatus' => esc_attr(get_option('chatGPTChatBotStatus')),
+        // Start Status New Visitor - Ver 1.4.3
+        'chatGPTChatBotStatusNewVisitor' => esc_attr(get_option('chatGPTChatBotStatusNewVisitor')),
         'chatgpt_disclaimer_setting' => esc_attr(get_option('chatgpt_disclaimer_setting')),
         'chatgpt_max_tokens_setting' => esc_attr(get_option('chatgpt_max_tokens_setting')),
         'chatgpt_width_setting' => esc_attr(get_option('chatgpt_width_setting')),

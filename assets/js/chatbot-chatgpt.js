@@ -28,7 +28,7 @@ jQuery(document).ready(function ($) {
         console.log(submitButton);
         console.log(chatGptChatBot);
         console.log('chatgpt_width_setting: ' + chatgpt_width_setting);
-        console.log('chatgpt_avator_icon_setting');
+        console.log('chatgpt_avatar_icon_setting');
     }
 
     var chatGptOpenButton = $('#chatgpt-open-btn');
@@ -248,13 +248,28 @@ jQuery(document).ready(function ($) {
     // Add this function to maintain the chatbot status across page refreshes and sessions - Ver 1.1.0 and updated for Ver 1.4.1
     function loadChatbotStatus() {
         const chatGPTChatBotStatus = localStorage.getItem('chatGPTChatBotStatus');
+        // New Visitor - Ver 1.4.3
+        const chatGPTChatBotStatusNewVisitor = localStorage.getItem('chatGPTChatBotStatusNewVisitor');
         // const chatGPTChatBotStatus = localStorage.getItem('chatgpt_start_status');
         
         // If the chatbot status is not set in local storage, use chatgpt_start_status
         if (chatGPTChatBotStatus === null) {
             if (chatgpt_start_status === 'closed') {
+
+                // New Visitor - Ver 1.4.3 - Decide here what to do, i.e., open or closed upon new visitor
+                if (chatGPTChatBotStatus === 'closed') {
+                    chatGptChatBot.hide();
+                    chatGptOpenButton.show();
+                } else if (chatGPTChatBotStatus === 'open') {
+                    chatGptChatBot.show();
+                    chatGptOpenButton.hide();
+                    // Load the conversation when the chatbot is shown on page load
+                    loadConversation();
+                    scrollToBottom();
+                } else {
                 chatGptChatBot.hide();
                 chatGptOpenButton.show();
+                }
             } else {
                 chatGptChatBot.show();
                 chatGptOpenButton.hide();

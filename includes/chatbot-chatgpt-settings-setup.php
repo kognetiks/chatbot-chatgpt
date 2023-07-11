@@ -34,6 +34,17 @@ function chatbot_chatGPTChatBotStatus_callback($args) {
     <?php
 }
 
+// Start Status for New Visitor - Ver 1.4.3
+function chatbot_chatGPTChatBotStatusNewVisitor_callback($args) {
+    $start_status_new_visitor = esc_attr(get_option('chatGPTChatBotStatusNewVisitor', 'closed'));
+    ?>
+    <select id="chatGPTChatBotStatusNewVisitor" name="chatGPTChatBotStatusNewVisitor">
+        <option value="open" <?php selected( $start_status_new_visitor, 'open' ); ?>><?php echo esc_html( 'Open' ); ?></option>
+        <option value="closed" <?php selected( $start_status_new_visitor, 'closed' ); ?>><?php echo esc_html( 'Closed' ); ?></option>
+    </select>
+    <?php
+}
+
 function chatbot_chatgpt_initial_greeting_callback($args) {
     $initial_greeting = esc_attr(get_option('chatgpt_initial_greeting', 'Hello! How can I help you today?'));
     ?>

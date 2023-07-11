@@ -90,7 +90,8 @@ The plugin supports the gpt-3.5-turbo and gpt-4 models from OpenAI.  These are t
 == Changelog ==
 
 = 1.4.3 =
-* TBD
+* Added support for new visitor start status, i.e., bot open or closed for new visitor
+* Added Avatar selection for initial message for new visitors - See Settings
 
 = 1.4.2 =
 * Added support for the GPT-4 API in settings - requires access to gpt-4 API, see [https://openai.com/waitlist/gpt-4-api](https://openai.com/waitlist/gpt-4-api)
